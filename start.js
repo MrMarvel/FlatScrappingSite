@@ -17,3 +17,7 @@ app.use('/flat-scrapping', serveIndex(folder,
     option={'filter': (name, index, files, dir) => {
             return files[index].includes('.csv');
         }}));
+
+app.get('/flat-scrapping/:filename', function(req, res) {
+    res.sendFile(folder + '/' + req.params.filename);
+});
