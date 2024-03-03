@@ -15,7 +15,7 @@ var serveIndex = require('serve-index');
 
 app.use('/flat-scrapping', serveIndex(folder,
     option={'filter': (name, index, files, dir) => {
-            return files[index].includes('.csv');
+            return files[index].includes('.csv') || files[index].includes('.txt');
         }}));
 
 app.get('/flat-scrapping/:filename', function(req, res) {
