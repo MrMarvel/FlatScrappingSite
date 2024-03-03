@@ -19,5 +19,6 @@ app.use('/flat-scrapping', serveIndex(folder,
         }}));
 
 app.get('/flat-scrapping/:filename', function(req, res) {
+    res.type('text/plain')
     res.sendFile(folder + '/' + req.params.filename);
 });
