@@ -21,8 +21,8 @@ app.use('/flat-scrapping', serveIndex(folder,
 app.get('/flat-scrapping/:filename', function(req, res) {
     res.type('text/plain')
     const options = {
-        root:'./',
+        root:folder,
         headers:{'Content-Type': 'text/plain; charset=utf-8'}
     };
-    res.sendFile(folder + '/' + req.params.filename, options);
+    res.sendFile(req.params.filename, options);
 });
