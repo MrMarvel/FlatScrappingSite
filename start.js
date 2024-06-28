@@ -11,7 +11,7 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
 
-var serveIndex = require('serve-index');
+const serveIndex = require('serve-index');
 
 app.use('/flat-scrapping', serveIndex(folder,
     option={'filter': (name, index, files, dir) => {
@@ -24,5 +24,5 @@ app.get('/flat-scrapping/:filename', function(req, res) {
         root:folder,
         headers:{'Content-Type': 'text/plain; charset=utf-8'}
     };
-    res.sendFile(req.params.filename, options);
+    res.download()
 });
